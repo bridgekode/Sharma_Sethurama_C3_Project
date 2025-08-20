@@ -1,5 +1,6 @@
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Restaurant {
@@ -63,5 +64,19 @@ public class Restaurant {
 
     public String getName() {
         return name;
+    }
+
+    // -------- Part 3: Order total feature --------
+
+    /** Sums prices for the given item names; unknown names are ignored. */
+    public int getOrderValue(List<String> itemNames) {
+        // TDD stub: wrong implementation on purpose for failing test commit
+        return 0;
+    }
+
+    /** Convenience overload to allow varargs input. */
+    public int getOrderValue(String... itemNames) {
+        // TDD stub: wrong implementation on purpose for failing test commit
+        return 0;
     }
 }

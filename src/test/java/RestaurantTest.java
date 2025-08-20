@@ -4,6 +4,9 @@ import org.junit.jupiter.api.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.time.LocalTime;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -92,6 +95,35 @@ class RestaurantTest {
                 () -> restaurant.removeFromMenu("French fries"));
     }
     // <<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+    // >>>>>>>>>>>>>>>>>>>>>>>> ORDER TOTAL <<<<<<<<<<<<<<<<<<<<<<
+
+    @Test
+    void getOrderValue_should_sum_prices_of_given_item_names_list() {
+        restaurant.addToMenu("Sizzling brownie", 319);
+        List<String> items = Arrays.asList("Sweet corn soup", "Vegetable lasagne");
+        int total = restaurant.getOrderValue(items);
+        assertEquals(119 + 269, total);
+    }
+
+    @Test
+    void getOrderValue_should_sum_prices_of_given_item_names_varargs() {
+        int total = restaurant.getOrderValue("Sweet corn soup");
+        assertEquals(119, total);
+    }
+
+    // @Test
+    // void getOrderValue_should_ignore_unknown_item_names() {
+    //     int total = restaurant.getOrderValue(Arrays.asList("Sweet corn soup", "Not In Menu"));
+    //     assertEquals(119, total); // unknown item ignored
+    // }
+
+    // @Test
+    // void getOrderValue_should_return_zero_for_empty_selection() {
+    //     assertEquals(0, restaurant.getOrderValue(Collections.emptyList()));
+    // }
+    // <<<<<<<<<<<<<<<<<<<<<<< ORDER TOTAL >>>>>>>>>>>>>>>>>>>>>>
 
 
     // >>>>>>>>>>>>>>>>>>>>>> OUTPUT & TIME HOOKS <<<<<<<<<<<<<<<<<<<<<<
