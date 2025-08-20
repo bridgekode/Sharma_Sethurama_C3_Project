@@ -113,16 +113,16 @@ class RestaurantTest {
         assertEquals(119, total);
     }
 
-    // @Test
-    // void getOrderValue_should_ignore_unknown_item_names() {
-    //     int total = restaurant.getOrderValue(Arrays.asList("Sweet corn soup", "Not In Menu"));
-    //     assertEquals(119, total); // unknown item ignored
-    // }
+    @Test
+    void getOrderValue_should_ignore_unknown_item_names() {
+        int total = restaurant.getOrderValue(Arrays.asList("Sweet corn soup", "Not In Menu"));
+        assertEquals(119, total); // unknown item ignored
+    }
 
-    // @Test
-    // void getOrderValue_should_return_zero_for_empty_selection() {
-    //     assertEquals(0, restaurant.getOrderValue(Collections.emptyList()));
-    // }
+    @Test
+    void getOrderValue_should_return_zero_for_empty_selection() {
+        assertEquals(0, restaurant.getOrderValue(Collections.emptyList()));
+    }
     // <<<<<<<<<<<<<<<<<<<<<<< ORDER TOTAL >>>>>>>>>>>>>>>>>>>>>>
 
 

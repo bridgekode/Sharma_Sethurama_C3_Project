@@ -70,13 +70,18 @@ public class Restaurant {
 
     /** Sums prices for the given item names; unknown names are ignored. */
     public int getOrderValue(List<String> itemNames) {
-        // TDD stub: wrong implementation on purpose for failing test commit
-        return 0;
+        int total = 0;
+        for (String n : itemNames) {
+            Item item = findItemByName(n);
+            if (item != null) {
+                total += item.getPrice();
+            }
+        }
+        return total;
     }
 
     /** Convenience overload to allow varargs input. */
     public int getOrderValue(String... itemNames) {
-        // TDD stub: wrong implementation on purpose for failing test commit
-        return 0;
+        return getOrderValue(Arrays.asList(itemNames));
     }
 }
